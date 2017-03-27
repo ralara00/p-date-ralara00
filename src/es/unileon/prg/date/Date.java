@@ -12,30 +12,34 @@ private int year;
 		this.month=month;
 		this.year=year;
 	}
-	int getDay(){
+
+	public int getDay(){
 		return this.day;
 	}
-	int getMonth(){
+
+	public int getMonth(){
 		return this.month;
 	}
-	int getYear(){
+
+	public int getYear(){
 		return this.year;
 	}
-	/*int getNumGuess(){
+
+	int getNumGuess(){
 		int contador=0;
 		Date randomDate;
 		boolean end=false;
 		while(!end){
-			randomDate = new Date (this.year);
+			randomDate = new Date (this.day, this.month, this.year);
 			contador++;
-		}	
-		if (this.equals(randomDate)){
-			end=true;
+			
+			if (this.equals(randomDate)){
+				end=true;
+			}
 		}
-
 		return contador;
 	}
-	*/
+	
 	/*void setDay(int day){
 		this.day=day;
 	}
@@ -45,12 +49,65 @@ private int year;
 		
 	}
 	boolean isSameDay (Date another){
-	if (this.day==another.getDay()){
+		return another.day==this.day;
+	}
+
+	boolean isSameMonth (Date another){
+		return another.month==this.month;
+	}
+
+	boolean isSame (Date another){
+		if (this.day==another.getDay() && this.month==another.getMonth() && this.year==another.getYear()){
 		return true;
-	}else{
+		}else{
 		return false;
+		}
 	}
+
+	boolean rightDay(){
+		if (this.day>31){
+			return false;
+		}else{
+			return true;
+		}
 	}
+	//Ahora añadir para que diga en todos los casos
+	private String monthSeason(int month){
+		String n;
+		switch(month){
+			case 1:
+			case 2:
+			case 12:
+				n="Invierno";
+			break;
+			case 4:
+			case 5:
+			case 3:
+				n="Primavera";
+			break;
+			case 7:
+			case 8:
+			case 6:
+				n="Verano";
+			break;
+			case 10:
+			case 11:
+			case 9:
+				n="Otoño";
+			break;
+		}
+		return n;
+	}
+	String monthSeason(){
+	return this.monthSeason(this.month);	
+	}
+
+
+
+
+
+
+
 
 	private int countDaysOfTheMonth(int month){
 		int n=0;
