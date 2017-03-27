@@ -73,7 +73,7 @@ private int year;
 	}
 	//Ahora añadir para que diga en todos los casos
 	private String monthSeason(int month){
-		String n;
+		String n="";
 		switch(month){
 			case 1:
 			case 2:
