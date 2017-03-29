@@ -11,6 +11,8 @@ private int year;
 		this.day=day;
 		this.month=month;
 		this.year=year;
+
+		this.isRightDay(day, month);
 	}
 
 	public int getDay(){
@@ -25,6 +27,7 @@ private int year;
 		return this.year;
 	}
 
+	//Arreglarlo en los paréntesis del getNumGuess o en el Date randomDate;
 	int getNumGuess(){
 		int contador=0;
 		Date randomDate;
@@ -64,14 +67,54 @@ private int year;
 		}
 	}
 
-	boolean rightDay(){
-		if (this.day>31){
+	private boolean isRightDay(int day, int month){
+		if (day<1 && day > this.numDaysMonth(month)){
 			return false;
 		}else{
 			return true;
 		}
 	}
-	//Ahora añadir para que diga en todos los casos
+	//(Ahora añadir para que diga en todos los casos) Se imprime el "No existe dicho día" fuera del if. (acortar código)
+	
+
+	
+	private int numDaysMonth(int month){
+		int n=0;
+		switch(month){
+			case 1:
+			case 3:
+			case 5:
+			case 7:
+			case 8:
+			case 10:
+			case 12:
+				
+				n=31;
+				
+			break;
+			case 4:
+			case 6:
+			case 9:
+			case 11:
+				
+					n=30;
+				
+			break;
+			case 2:
+				
+					n=28;
+				
+			break;
+			default:
+				n=-1;
+				
+		}
+		return n;
+	}
+	int numDaysMonth(){
+	return this.numDaysMonth(this.month);	
+	}
+	
 	private String monthSeason(int month){
 		String n="";
 		switch(month){
@@ -102,42 +145,54 @@ private int year;
 	return this.monthSeason(this.month);	
 	}
 
-
-
-
-
-
-
-
-	private int countDaysOfTheMonth(int month){
-		int n=0;
+	private String monthName (int month){
+		String n="";
 		switch(month){
 			case 1:
-			case 3:
-			case 5:
-			case 7:
-			case 8:
-			case 10:
-			case 12:
-				n=31;
-			break;
-			case 4:
-			case 6:
-			case 9:
-			case 11:
-				n=30;
+				n="Enero";
 			break;
 			case 2:
-				n=28;
+				n="Febrero";
 			break;
+			case 3:
+				n="Marzo";
+			break;
+			case 4:
+				n="Abril";
+			break;
+			case 5:
+				n="Mayo";
+			break;
+			case 6:
+				n="Junio";
+			break;
+			case 7:
+				n="Julio";
+			break;
+			case 8:
+				n="Agosto";
+			break;
+			case 9:
+				n="Septiembre";
+			break;
+			case 10:
+				n="Octubre";
+			break;
+			case 11:
+				n="Noviembre";
+			break;
+			case 12:
+				n="Diciembre";
+			break;
+			
 		}
 		return n;
 	}
-	int countDaysOfTheMonth(){
-	return this.countDaysOfTheMonth(this.month);	
+	String monthName(){
+	return this.monthName(this.month);	
 	}
 
-	public int countDaysOfTheYear(){
+	/*public int countDaysOfTheYear(){
 	int year;
 	int cont=0;
 		for (int i=1;i<this.month;i++){
@@ -146,7 +201,26 @@ private int year;
 	cont+=this.day;
 	return cont;
 	}
-	
+	*/
+
+	//Que sume los días del primer mes, los del segundo, y fuera del for los del mes actual, y devuelva todo en el contador
+
+	/*public int daysFromTheFirstOne(){
+		int numDaysMonth(int month);
+		int cont=0;
+		for (int i=1;i<this.day;i++){
+			cont=cont + this.numDaysMonth();
+		}
+		return cont;
+	}
+	*/
+
+
+
+
+	public String toString(){
+		return this.day + "/" + this.month + "/" + this.year;
+	}
 	
 
 
