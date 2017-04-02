@@ -32,14 +32,14 @@ private int year;
 		int contador=0;
 		Date randomDate;
 		boolean end=false;
-		while(!end){
+		do{
 			randomDate = new Date (this.day, this.month, this.year);
 			contador++;
 			
 			if (this.equals(randomDate)){
 				end=true;
 			}
-		}
+		}while(!end);
 		return contador;
 	}
 	
@@ -192,6 +192,45 @@ private int year;
 	return this.monthName(this.month);	
 	}
 
+	public int numberMonthsUntilEndOfTheYear(){
+		int cont=0;
+		for (int i=this.month;i<12;i++){
+			cont=cont + 1;
+		}
+		return cont;
+	}
+
+	/*private String monthsUntilEndOfTheYear(int month){
+		String mon="";
+		for (String i=this.monthName();i!=mon;i++){
+			mon=i+1;
+		}
+		return mon;
+	}
+	String monthsUntilEndOfTheYear(){
+	return this.monthsUntilEndOfTheYear(this.month);	
+	}*/
+
+	//Falta que imprima todas las fechas
+	public int daysUntilEndOfTheMonth(){
+		int cont=0;
+		for (int i=this.day;i<31;i++){
+			cont=cont + 1;
+			//System.out.println(Date);			
+		}
+		return cont;
+	}
+
+	/*public String monthsWithSameDays(int month){
+		//int numDaysMonth(int month);
+		int months=0;
+		for (int i=this.month;i<12;i++){
+			months=this.getMonth+1;
+			System.out.println(this.month);		
+		}
+		return months;
+	}
+*/
 	/*public int countDaysOfTheYear(){
 	int year;
 	int cont=0;
