@@ -1,0 +1,13 @@
+Practica Date
+
+Alumno: Rodrigo Alarma Álvarez
+
+Problemas surgidos al realizar la practica:
+
+El daysFromTheFirstOne no da los días exactos, habiendo un fallo que aumenta por mes (creo que es por inicializar la i=1, pero no se como solucionarlo), y he probado a hacerlo de otra forma (que está comentada) pero tampoco lo corrige.
+En monthsUntilEndOfTheYear me da errores a la hora de mostrar todos los meses, por lo que creé un método aparte para que mostrase el número de meses que quedaban.
+En daysUntilEndOfTheMonth me da errores por lo que hice que al menos mostrara los días que quedan hasta final de mes.
+El getNumGuess se queda colgado en la ejecución, sin mostrar una fecha aleatoria ni permitir continuar el programa. Al no poder generar una fecha aleatoria, tampoco puedo contar el número de intentos hasta que funcione.
+Los que no están ni comentados no supe como hacerlos.
+
+Envío un cip con todo puesto que incluí un package en el build.xml y era necesaria la lectura de este LEEME.

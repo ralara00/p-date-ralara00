@@ -67,16 +67,13 @@ private int year;
 		}
 	}
 
-	private boolean isRightDay(int day, int month){
-		if (day<1 && day > this.numDaysMonth(month)){
+	boolean isRightDay(int day, int month){
+		if (day<1 && day>this.numDaysMonth(month)){
 			return false;
 		}else{
 			return true;
 		}
 	}
-	//(Ahora añadir para que diga en todos los casos) Se imprime el "No existe dicho día" fuera del if. (acortar código)
-	
-
 	
 	private int numDaysMonth(int month){
 		int n=0;
@@ -97,12 +94,12 @@ private int year;
 			case 9:
 			case 11:
 				
-					n=30;
+				n=30;
 				
 			break;
 			case 2:
 				
-					n=28;
+				n=28;
 				
 			break;
 			default:
@@ -245,16 +242,23 @@ private int year;
 	//Que sume los días del primer mes, los del segundo, y fuera del for los del mes actual, y devuelva todo en el contador
 
 	/*public int daysFromTheFirstOne(){
-		int numDaysMonth(int month);
-		int cont=0;
-		for (int i=1;i<this.day;i++){
-			cont=cont + this.numDaysMonth();
+		int count=0;
+		for (int i=1;i<=this.month;i++){
+			count=count + this.numDaysMonth(this.month);
 		}
-		return cont;
+		count=count-this.daysUntilEndOfTheMonth();
+		return count;
 	}
 	*/
-
-
+	public int daysFromTheFirstOne(){
+		int count=0;
+		for (int i=1;i<this.month;i++){
+			count=count + this.numDaysMonth(this.month);
+		}
+		count=count+this.day;
+		return count;
+	}
+	
 
 
 	public String toString(){
